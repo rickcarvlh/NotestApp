@@ -16,8 +16,13 @@
 
 // console.log(sum);
 // console.log(msg);
+const validator = require('validator');
 const getNotes = require('./notes');
 
 const msg = getNotes();
 
+console.log(validator.isEmail('andrew@example.com'));
+
+
 console.log(msg);
+
