@@ -16,13 +16,17 @@
 
 // console.log(sum);
 // console.log(msg);
-const validator = require('validator');
+// const validator = require('validator');
+// console.log(validator.isEmail('andrew@example.com'));
 const getNotes = require('./notes');
+// * load chalk
+const chalk = require('chalk');
 
-const msg = getNotes();
+const command = process.argv[2];
+console.log(process.argv);
 
-console.log(validator.isEmail('andrew@example.com'));
-
-
-console.log(msg);
-
+if (command === 'add') {
+  console.log('Adding note!');
+} else if (command === 'remove') {
+  console.log('Removing note');
+}
