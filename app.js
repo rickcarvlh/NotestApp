@@ -36,5 +36,32 @@ yargs.command({
   },
 });
 
+// Create a remove command
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  handler: function () {
+    console.log('Removing a note');
+  },
+});
+
+// Create a list command
+yargs.command({
+  command: 'list',
+  describe: 'List a note',
+  handler: function () {
+    console.log('Listing a note');
+  },
+});
+
+// Create a note command
+yargs.command({
+  command: 'read',
+  describe: 'Read a note',
+  handler: function () {
+    console.log('Read a note');
+  },
+});
+
 console.log(process.argv);
 console.log(yargs.argv);
