@@ -1,0 +1,24 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "practice notes app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickcarvlh/NotestApp.git"
+  },
+  "author": "Ricardo Carvalho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rickcarvlh/NotestApp/issues"
+  },
+  "homepage": "https://github.com/rickcarvlh/NotestApp#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "validator": "^13.1.1",
+    "yargs": "^12.0.2"
+  }
+}
