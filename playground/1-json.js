@@ -26,5 +26,8 @@ data.name = 'Ricardo';
 data.planet = 'Terra';
 data.age = 35;
 
-console.log(data.name);
-console.log(data);
+const userJson = JSON.stringify(data);
+fs.writeFileSync('1-json.json', userJson);
+
+// console.log(data.name);
+// console.log(userJson);
