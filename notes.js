@@ -6,9 +6,49 @@
 // };
 
 // module.exports = getNotes;
+const fs = require('fs');
 
 const getNotes = () => {
   return 'Your notes...!';
 };
 
-module.exports = getNotes;
+const addNote = (title, body) => {
+  const notes = loadNotes();
+  const duplicateNotes = notes.filter((note) => {
+    return note.title === title;
+  });
+
+  // if no duplicate notes i can push to array
+  if (duplicateNotes.length === 0) {
+    notes.push({
+      title: title,
+      body: body,
+    });
+    console.log('New note added');
+  } else {
+    console.log('Note title taken');
+  }
+
+  saveNotes(notes);
+  console.log(notes);
+};
+
+const saveNotes = (notes) => {
+  const dataJson = JSON.stringify(notes);
+  fs.writeFileSync('notes.json', dataJson, { encoding: 'utf8' });
+};
+
+const loadNotes = () => {
+  try {
+    const dataBuffer = fs.readFileSync('notes.json');
+    const dataJson = dataBuffer.toString();
+    return JSON.parse(dataJson);
+  } catch (e) {
+    return [];
+  }
+};
+
+module.exports = {
+  getNotes: getNotes,
+  addNote: addNote,
+};

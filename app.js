@@ -18,7 +18,7 @@
 // console.log(msg);
 // const validator = require('validator');
 // console.log(validator.isEmail('andrew@example.com'));
-const getNotes = require('./notes');
+const notes = require('./notes');
 // * load chalk
 const chalk = require('chalk');
 // * load yargs
@@ -44,8 +44,10 @@ yargs.command({
     },
   },
   handler: function (argv) {
-    console.log('Title: ' + argv.title);
-    console.log('Body: ' + argv.body);
+    // ! old code
+    // console.log('Title: ' + argv.title);
+    // console.log('Body: ' + argv.body);
+    notes.addNote(argv.title, argv.body);
   },
 });
 

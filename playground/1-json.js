@@ -19,14 +19,13 @@ const dataBuffer = fs.readFileSync('1-json.json');
 // console.log(dataBuffer.toString());
 const dataJSON = dataBuffer.toString();
 // convert JSON into Object
-const data = JSON.parse(dataJSON);
-console.log(data.title);
+const user = JSON.parse(dataJSON);
 
-data.name = 'Ricardo';
-data.planet = 'Terra';
-data.age = 35;
+user.name = 'Gunther';
+user.age = 54;
 
-const userJson = JSON.stringify(data);
+
+const userJson = JSON.stringify(user);
 fs.writeFileSync('1-json.json', userJson);
 
 // console.log(data.name);
