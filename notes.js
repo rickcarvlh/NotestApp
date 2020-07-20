@@ -49,7 +49,19 @@ const loadNotes = () => {
   }
 };
 
+// removeNotes
+const removeNotes = (title) => {
+  const notes = loadNotes();
+  const notesToKeep = notes.filter((note) => {
+    // remove what is not equal to title the rest delete
+    return note.title !== title;
+  });
+  saveNotes(notesToKeep);
+  console.log(title);
+};
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
+  removeNotes: removeNotes,
 };
