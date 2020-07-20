@@ -35,6 +35,7 @@ const addNote = (title, body) => {
 
 const saveNotes = (notes) => {
   const dataJson = JSON.stringify(notes);
+  // faz overwrite ao ficheiro todo ou seja escreve sempre o ficheiro de novo e não apenas novas alaterações
   fs.writeFileSync('notes.json', dataJson, { encoding: 'utf8' });
 };
 
