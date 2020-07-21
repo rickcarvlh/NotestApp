@@ -76,7 +76,7 @@ yargs.command({
   },
 });
 
-// Create a note command
+// Create a read command
 yargs.command({
   command: 'read',
   describe: 'Read a note',
@@ -84,6 +84,9 @@ yargs.command({
     console.log('Read a note');
   },
 });
+
+
+
 
 yargs.parse();
 // console.log(process.argv);

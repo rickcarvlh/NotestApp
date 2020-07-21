@@ -15,10 +15,24 @@ const getNotes = () => {
 
 const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter((note) => note.title === title);
 
-  // if no duplicate notes i can push to array
-  if (duplicateNotes.length === 0) {
+  // ! old code
+  // const duplicateNotes = notes.filter((note) => note.title === title);
+  const duplicateNote = note.find((note) => note.title === title);
+
+  // ! old code 
+  // if (duplicateNotes.length === 0) {
+  //   notes.push({
+  //     title: title,
+  //     body: body,
+  //   });
+  //   console.log(chalk.green.inverse('New note added'));
+  // } else {
+  //   console.log(chalk.red.inverse('Note title taken'));
+  // }
+
+  // * if there is no match do this
+  if (!duplicateNote) {
     notes.push({
       title: title,
       body: body,
