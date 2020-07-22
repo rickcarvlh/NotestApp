@@ -18,7 +18,7 @@
 // console.log(msg);
 // const validator = require('validator');
 // console.log(validator.isEmail('andrew@example.com'));
-const getNotes = require('./notes');
+const notes = require('./notes');
 // * load chalk
 const chalk = require('chalk');
 // * load yargs
@@ -43,9 +43,11 @@ yargs.command({
       type: 'string',
     },
   },
-  handler: function (argv) {
-    console.log('Title: ' + argv.title);
-    console.log('Body: ' + argv.body);
+  handler(argv) {
+    // ! old code
+    // console.log('Title: ' + argv.title);
+    // console.log('Body: ' + argv.body);
+    notes.addNote(argv.title, argv.body);
   },
 });
 
@@ -53,8 +55,15 @@ yargs.command({
 yargs.command({
   command: 'remove',
   describe: 'Remove a note',
-  handler: function () {
-    console.log('Removing a note');
+  builder: {
+    title: {
+      describe: 'Removing title',
+      demandOption: true,
+      type: 'string',
+    },
+  },
+  handler(argv) {
+    notes.removeNotes(argv.title);
   },
 });
 
@@ -62,19 +71,29 @@ yargs.command({
 yargs.command({
   command: 'list',
   describe: 'List a note',
-  handler: function () {
-    console.log('Listing a note');
+  handler() {
+    notes.listNotes();
   },
 });
 
-// Create a note command
+// Create a read command
 yargs.command({
   command: 'read',
   describe: 'Read a note',
-  handler: function () {
-    console.log('Read a note');
+  builder: {
+    title: {
+      describe: 'Read note',
+      demandOption: true,
+      type: 'string',
+    },
+  },
+  handler(argv) {
+    notes.readNote(argv.title);
   },
 });
+
+
+
 
 yargs.parse();
 // console.log(process.argv);
